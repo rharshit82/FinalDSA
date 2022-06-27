@@ -8,7 +8,7 @@
 // Soln: Dequeue can do Both
 // 1. Insertion of new sum value at the end in Monotonically Asc Order
 // 2. Compression of Sum value form beginning to minimize the window size with sum>=target
-
+//-ve element
 //T(n) = O(n) Space = O(n)
 
 class Solution {

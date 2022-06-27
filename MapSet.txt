@@ -1,0 +1,38 @@
+The sorted std::set also supports:
+
+lower_bound: returns an iterator to the least element greater than or equal to some element k.
+upper_bound: returns an iterator to the least element strictly greater than some element k.
+set<int> s;
+
+s.insert(1); // [1]
+s.insert(14); // [1, 14]
+s.insert(9); // [1, 9, 14]
+s.insert(2); // [1, 2, 9, 14]
+cout << *s.upper_bound(7) << '\n'; // 9
+cout << *s.upper_bound(9) << '\n'; // 14
+cout << *s.lower_bound(5) << '\n'; // 9
+cout << *s.lower_bound(9) << '\n'; // 9
+cout << *s.begin() << '\n'; // 1
+auto it = s.end();
+cout << *(--it) << '\n'; // 14
+s.erase(s.upper_bound(6)); // [1, 2, 14]
+
+Same for Map
+
+Multiset: the count() method returns the number of times an element is present in the multiset. However, this method takes time linear in the number of matches so you shouldn't use it in a contest.
+To remove a value once, use ms.erase(ms.find(val)).
+To remove all occurrences of a value, use ms.erase(val).
+multiset<int> ms;
+ms.insert(1); // [1]
+ms.insert(14); // [1, 14]
+ms.insert(9); // [1, 9, 14]
+ms.insert(2); // [1, 2, 9, 14]
+ms.insert(9); // [1, 2, 9, 9, 14]
+ms.insert(9); // [1, 2, 9, 9, 9, 14]
+cout << ms.count(4) << '\n'; // 0
+cout << ms.count(9) << '\n'; // 3
+cout << ms.count(14) << '\n'; // 1
+ms.erase(ms.find(9));
+cout << ms.count(9) << '\n'; // 2
+ms.erase(9);
+cout << ms.count(9) << '\n'; // 0
