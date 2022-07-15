@@ -10,7 +10,6 @@
 const int sz = 2e5;
 int subTree[sz];
 void dfs(int x, vector<vector<int>> &children){
-    debug(x);
     subTree[x]=1;
     for(auto child: children[x]){
         dfs(child, children);
